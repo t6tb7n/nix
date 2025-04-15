@@ -219,6 +219,7 @@ libc_bitflags! {
     }
 }
 
+#[cfg(not(target_os = "nto"))]
 libc_enum! {
     /// Usage information for a range of memory to allow for performance optimizations by the kernel.
     ///
@@ -550,6 +551,7 @@ pub unsafe fn munmap(addr: NonNull<c_void>, len: size_t) -> Result<()> {
 ///
 /// [`madvise(2)`]: https://man7.org/linux/man-pages/man2/madvise.2.html
 #[allow(rustdoc::broken_intra_doc_links)] // For Hurd as `MADV_FREE` is not available on it
+#[cfg(not(target_os = "nto"))]
 pub unsafe fn madvise(
     addr: NonNull<c_void>,
     length: size_t,
