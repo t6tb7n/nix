@@ -82,7 +82,7 @@ libc_bitflags! {
         /// Do not reserve swap space for this mapping.
         ///
         /// This was removed in FreeBSD 11 and is unused in DragonFlyBSD.
-        #[cfg(not(any(freebsdlike, target_os = "aix", target_os = "hurd")))]
+        #[cfg(not(any(freebsdlike, target_os = "aix", target_os = "hurd", target_os = "nto")))]
         MAP_NORESERVE;
         /// Populate page tables for a mapping.
         #[cfg(linux_android)]
